@@ -34,4 +34,4 @@ def deletar_jogo(jogo_id: int, db: Session = Depends(get_db)):
     db_jogo = crud.excluir_jogo(db, jogo_id)
     if not db_jogo:
         raise HTTPException(status_code=404, detail="não encontrado")
-    return {"mensagem": "Jogo removido"}
+    return {"mensagem": "Jogo_removido"}
