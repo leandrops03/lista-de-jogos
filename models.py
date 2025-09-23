@@ -1,11 +1,10 @@
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
+from .database import Base
 
-Base = declarative_base()
-
-class Jogo(Base):
-    __tablename__ = 'jogos'  # Nome da tabela no banco de dados
-
-    id = Column(Integer, primary_key=True)
-    nome = Column(String)
-    ano_lancamento = Column(Integer)
+# Definindo o modelo Jogador
+class Jogador(Base):
+    __tablename__ = "jogadores"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    nome = Column(String, index=True)
+    jogo = Column(String)
