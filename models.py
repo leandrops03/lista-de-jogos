@@ -1,12 +1,11 @@
-from sqlalchemy import Column, Integer, String, Boolean, DateTime
-from datetime import datetime
-from database import Base
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
 
 class Jogo(Base):
-    _tablename_ = "jogos"
+    __tablename__ = 'jogos'  # Nome da tabela no banco de dados
 
-    id = Column(Integer, primary_key=True, index=True)
-    titulo = Column(String, index=True)
-    genero = Column(String, nullable=True)
-    finalizado = Column(Boolean, default=False)
-    data_adicao = Column(DateTime, default=datetime.utcnow)
+    id = Column(Integer, primary_key=True)
+    nome = Column(String)
+    ano_lancamento = Column(Integer)
